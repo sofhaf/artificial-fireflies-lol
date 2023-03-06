@@ -13,35 +13,24 @@
   const bgColor = '#0C0402'
   const moonURL = 'moon.png'
   const glowURL = 'glow.png'
-	let fire
-  let y = 180
-  let x = 380
-  
+  let fire, r, x, y
+
   // let x = 380
   // let y = 180
   // let vx = 1
   // let vy = 1
-    
+
   function createFire(x, y) {
+    r = Math.random() * 666
+    console.log(r)
+    
     const fly = document.createElement('img')
     fly.src = glowURL + '#' + Math.random()
     fly.style.position = 'absolute'
-    fly.style.width = 150
-    fly.style.left = '${x}px'
-    fly.style.top = '${y}px'
+    fly.style.width = 66
+    fly.style.left = x + 'px'
+    fly.style.top = y + 'px'
     return fly
-  }
-
-  function fly() {
-    requestAnimationFrame(fly)
-    x++
-    y++
-    fire.style.top = '${y}px'
-    // fly.style.top = 
-    
-    // sphere equation around moon is
-    // (x - 380)^2 + (y-180)^2 + (z-0)^2 = r^2
-		// const r = 
   }
 
   function setup() {
@@ -54,10 +43,27 @@
     moon.style.left = innerWidth / 2 - 388.5
     moon.style.top = 111
 
-    fire = createFire(x, y)
+    fire = createFire(366, 166)
     document.body.appendChild(fire)
   }
-  
+
+  function fly() {
+    // requestAnimationFrame(fly)
+    console.log(x)
+    x++ 
+    console.log(x)
+    y = (r^2 - (x-366)^2)^(1/2) + 366
+    // console.log(y)
+    // console.log (y)
+    
+    fire.style.left = x + 'px'
+    fire.style.top = y + 'px'
+   
+    // sphere equation around moon is
+    // (x - 380)^2 + (y-180)^2 + (z-0)^2 = r^2
+    // const r = 
+  }
+
   window.addEventListener('load', setup)
   window.addEventListener('load', fly)
 </script>
