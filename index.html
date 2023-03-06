@@ -12,11 +12,18 @@
   
   const bgColor = '#0C0402'
   const moonURL = 'moon.png'
+  const glowURL = 'glow.png'
 
   
-//   function creatFlies(n) {
-    
-//   }
+  function createFlies(x, y) {
+    const fly = document.createElement('img')
+    fly.src = glowURL + '#' + Math.random()
+    document.body.appendChild(fly)
+    fly.style.position = 'absolute'
+    fly.style.width = 150
+    fly.style.left = x + 'px'
+    fly.style.top = y + 'px'
+  }
 
   function setup() {
  		document.body.style.backgroundColor = bgColor
@@ -26,7 +33,8 @@
     document.body.appendChild(moon)
     moon.style.width = 777
     
-
+		createFlies(1,1)
+    
   }
 
   window.addEventListener('load', setup)
