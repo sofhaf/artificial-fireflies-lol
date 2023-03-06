@@ -1,20 +1,20 @@
 <script>
-  
   // Three fireflies are trapped in the plane of your
   // computer screen. They fly towards their moon...
   // or at least what looks to be their moon...
   // during what seems to be nightime...
   //
-  // If you see me, then I can see you.
+  // If you see me, then I can see you too...
+  //
   // How will you move on? 
   // Are you really only my user?
   // 																			March 2023
-  
+
   const bgColor = '#0C0402'
   const moonURL = 'moon.png'
   const glowURL = 'glow.png'
 
-  
+
   function createFlies(x, y) {
     const fly = document.createElement('img')
     fly.src = glowURL + '#' + Math.random()
@@ -25,16 +25,21 @@
     fly.style.top = y + 'px'
   }
 
+  function fly() {
+		
+  }
+
   function setup() {
- 		document.body.style.backgroundColor = bgColor
-    document.body.style.overflow = 'hidden'
+    document.body.style.backgroundColor = bgColor
     const moon = document.createElement('img')
     moon.src = moonURL
     document.body.appendChild(moon)
     moon.style.width = 777
-    
-		createFlies(1,1)
-    
+    moon.style.position = 'absolute'
+    moon.style.left = innerWidth / 2 - 388.5
+    moon.style.top = 111
+
+    createFlies(5, 5)
   }
 
   window.addEventListener('load', setup)
