@@ -13,20 +13,35 @@
   const bgColor = '#0C0402'
   const moonURL = 'moon.png'
   const glowURL = 'glow.png'
-
-
-  function createFlies(x, y) {
+	let fire
+  let y = 180
+  let x = 380
+  
+  // let x = 380
+  // let y = 180
+  // let vx = 1
+  // let vy = 1
+    
+  function createFire(x, y) {
     const fly = document.createElement('img')
     fly.src = glowURL + '#' + Math.random()
-    document.body.appendChild(fly)
     fly.style.position = 'absolute'
     fly.style.width = 150
-    fly.style.left = x + 'px'
-    fly.style.top = y + 'px'
+    fly.style.left = '${x}px'
+    fly.style.top = '${y}px'
+    return fly
   }
 
   function fly() {
-		
+    requestAnimationFrame(fly)
+    x++
+    y++
+    fire.style.top = '${y}px'
+    // fly.style.top = 
+    
+    // sphere equation around moon is
+    // (x - 380)^2 + (y-180)^2 + (z-0)^2 = r^2
+		// const r = 
   }
 
   function setup() {
@@ -39,8 +54,10 @@
     moon.style.left = innerWidth / 2 - 388.5
     moon.style.top = 111
 
-    createFlies(5, 5)
+    fire = createFire(x, y)
+    document.body.appendChild(fire)
   }
-
+  
   window.addEventListener('load', setup)
+  window.addEventListener('load', fly)
 </script>
