@@ -1,0 +1,27 @@
+<script>
+  
+  // Three fireflies are trapped in the plane of your
+  // computer screen. They fly towards their moon,
+  // or at least what looks to be their moon
+  // during what seems to be nightime...
+  //
+  // How will you move on? 
+  // Are you really only my user?
+  // 																			March 2023
+  
+  const bgColor = '#0C0402'
+  const moonURL = 'moon.png'
+
+  function setup() {
+ 		document.body.style.backgroundColor = bgColor
+    document.body.style.overflow = 'hidden'
+    const moon = document.createElement('img')
+    moon.src = moonURL
+    document.body.appendChild(moon)
+    moon.style.width = 777
+    
+    
+  }
+
+  window.addEventListener('load', setup)
+</script>
