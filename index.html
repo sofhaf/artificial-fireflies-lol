@@ -4,22 +4,28 @@
   // or at least what looks to be their moon...
   // during what seems to be nightime...
   //
-  // If you see me, then I can see you too...
+  // Are we fake? or are we real?
+  // If you see us, then we can see you...
+  // We all follow the light at some point.
   //
   // How will you move on? 
   // Are you really only my user?
+  // https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4557
+  //
   // 																			March 2023
 
   const bgColor = '#0C0402'
-  const moonURL = 'moon.png'
+  const moonURL = 'moon.png' //from Aysha//
   const glowURL = 'glow.png'
   const mx = innerWidth / 2
   const my = 277
-  let fire
+  let rosie, gwen, lara
   let r = Math.random() * 666
-  let x = mx
-  let y = my
+  let g = Math.random() * 333
+  let l = Math.random() * 111
+  let x, y, a, b, c, d
   let angle = 0
+  //this was super helpful: https://stackoverflow.com/questions/17765841/draw-moving-circles//
 
   function createFire(x, y) {
     const fly = document.createElement('img')
@@ -41,25 +47,36 @@
     moon.style.left = innerWidth / 2 - 388.5
     moon.style.top = 111
 
-    fire = createFire(x, y)
-    document.body.appendChild(fire)
+    //From here, there's repetition but idk how to "fix" it...
+    rosie = createFire (x, y)
+    document.body.appendChild(rosie)
+    gwen = createFire(a, b)
+    document.body.appendChild(gwen)
+    lara = createFire(c, d)
+    document.body.appendChild(lara)
     
   }
 
   function draw() {
     requestAnimationFrame(draw)
+    
     x = mx + r * Math.cos(angle * Math.PI / 180);
     y = my + r * Math.sin(angle * Math.PI / 180);
+    rosie.style.left = x + 'px'
+    rosie.style.top = y + 'px'
+    a = mx + g * Math.cos(angle * Math.PI / 180);
+    b = my + g * Math.sin(angle * Math.PI / 180);
+    gwen.style.left = a + 'px'
+    gwen.style.top = b + 'px'
+    c = mx + l * Math.cos(angle * Math.PI / 180);
+    d = my + l * Math.sin(angle * Math.PI / 180);
+    lara.style.left = c + 'px'
+    lara.style.top = d + 'px'
    
-    fire.style.left = x + 'px'
-    fire.style.top = y + 'px'
-
     angle++
-  
     if (angle > 360) {
       angle = 0 }
   }
-  
   
   window.addEventListener('load', setup)
   window.addEventListener('load', draw)
