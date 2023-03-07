@@ -17,12 +17,9 @@
   const my = 277
   let fire
   let r = Math.random() * 666
-  let x = mx - (Math.random() * 333)
-  let y = (r^2 - (x - mx)^2)^(1/2) + my
-  // let x = 380
-  // let y = 180
-  // let vx = 1
-  // let vy = 1
+  let x = mx
+  let y = my
+  let angle = 0
 
   function createFire(x, y) {
     const fly = document.createElement('img')
@@ -49,44 +46,20 @@
   }
 
   function draw() {
-    // requestAnimationFrame(draw)
-    console.log(x)
-    console.log(y)  
-    console.log(r)
-    console.log(fire)
-    console.log(mx)
-    console.log(my)
+    requestAnimationFrame(draw)
+    x = mx + r * Math.cos(angle * Math.PI / 180);
+    y = my + r * Math.sin(angle * Math.PI / 180);
+   
+    fire.style.left = x + 'px'
+    fire.style.left = y + 'px'
+
+    angle++
     
-    // x = (x * Math.cos(11)) + (y * Math.sin(11))
-    // y = (-x * Math.sin(11)) + (y * Math.cos(11))
-    
-//     fire.style.left = x + 'px'
-//     fire.style.left = y + 'px'
-
-//     console.log(x)
-//     console.log(y)  
-//     console.log(r)
-//     console.log(fire)
-    
-    // y = (r^2 - (x - mx)^2)^(1/2) + my
-
-    // fire.style.top = y + 'px'  
-    // console.log(fire)
-    // x = (r^2 - (y - my)^2)^(1/2) + mx
-    // console.log(x)
-    // console.log(x)
-    // y = (r^2 - (x - mx)^2)^(1/2) + my
-    // console.log(y)
-    // console.log (y)
-
-    // fire.style.left = x + 'px'
-    // fire.style.top = y + 'px'
-
-    // sphere equation around moon is
-    // (x - 380)^2 + (y-180)^2 + (z-0)^2 = r^2
-    // const r = 
+    if (angle > 360) {
+      angle = 0 }
   }
-
+  
+  
   window.addEventListener('load', setup)
   window.addEventListener('load', draw)
 </script>
